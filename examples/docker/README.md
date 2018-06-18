@@ -5,12 +5,21 @@
 This client connects to the API container
 
 ## Constructor
-| State | Description       |
+
+```javascript
+const downloader = new YouTubeDownloader(url)
+```
+
+| url   | Description       |
 | ----- | ----------------- |
 | url   | url of the video  |
 
 
 ## Events
+
+```javascript
+downloader.on(event, listener)
+```
 
 | Event          | return value | Description  |
 | -------------- | ------------ | ----- |
