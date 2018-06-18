@@ -43,6 +43,16 @@ class YouTubeDownloader extends EventEmitter {
 
 function main() {
     const Downloader = new YouTubeDownloader("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+
+    Downloader.on("open", d => console.log("open: ", d));
+    Downloader.on("started", d => console.log("started: ", d));
+    Downloader.on("state-change", d => console.log("state-change: ", d));
+    Downloader.on("finished", d => console.log("finished: ", d));
+    Downloader.on("close", d => console.log("close: ", d));
 }
 
-main();
+if (require.main === module) {
+    main();
+}
+
+module.exports = YouTubeDownloader;
