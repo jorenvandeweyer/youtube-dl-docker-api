@@ -1,0 +1,9 @@
+version: "3"
+services:
+  client:
+    build: .
+    networks:
+      - dupbit_prime
+networks:
+  dupbit_prime:
+    external: true
