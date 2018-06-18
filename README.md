@@ -4,7 +4,9 @@
 
 This module should not be imported into existing repositories but should be run as a docker container in this current form.
 
-You can connect to it by using `node-ipc`
+You can connect to it by using `node-ipc` from a different container.
+
+**Instead of also transferring the downloaded file over ipc connection. I recommend you share a volume between those two containers and get the file with `fs.readFileSync` after you received the event that tells you the download is finished.** 
 
 ## Setup API
 

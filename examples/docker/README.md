@@ -1,5 +1,10 @@
 # YouTubeDownloader Client
 
+## Run the example
+
+`docker-compose up --build -d`
+
+# Class: YouTubeDownloader
 ## Description
 
 This client connects to the API container
@@ -7,7 +12,9 @@ This client connects to the API container
 ## Constructor
 
 ```javascript
-const downloader = new YouTubeDownloader(url)
+const YouTubeDownloader = require("./index.js");
+
+const downloader = new YouTubeDownloader("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
 ```
 
 | url   | Description       |
