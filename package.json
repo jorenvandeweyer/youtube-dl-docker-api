@@ -1,15 +1,19 @@
 {
   "name": "youtube-dl-docker-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "A youtube-dl docker container that uses the IPC protocol to request a download and notify other containers about a download's state",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Joren Vandeweyer",
   "license": "ISC",
   "dependencies": {
     "node-ipc": "^9.1.1"
+  },
+  "repository": {
+      "name": "youtube-dl-docker-api",
+      "url": "https://github.com/jorenvandeweyer/youtube-dl-docker-api.git"
   }
 }
