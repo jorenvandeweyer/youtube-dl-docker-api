@@ -1,11 +1,12 @@
+const ipc = require("node-ipc");
 const Download = require("./download");
-const ipc = require('node-ipc');
+const { id, host, port } = require("../config.json");
 
-ipc.config.id   = 'youtube';
+ipc.config.id = id;
 ipc.config.retry= 1500;
 ipc.config.silent = true;
 
-ipc.serveNet("downloader", () => {
+ipc.serveNet(host, port, () => {
     ipc.server.on("download", (url, socket) => {
         console.log("downloading: ", url);
 

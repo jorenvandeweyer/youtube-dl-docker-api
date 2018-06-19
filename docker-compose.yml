@@ -1,6 +1,6 @@
 version: "3"
 services:
-  downloader:
+  youtube-dl:
     build: .
     volumes:
       - ./files/:/usr/src/app/files/

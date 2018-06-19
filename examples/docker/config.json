@@ -1,0 +1,6 @@
+{
+    "id": "client",
+    "connectTo": "youtube-dl-api",
+    "host": "youtube-dl",
+    "port": 8000
+}
