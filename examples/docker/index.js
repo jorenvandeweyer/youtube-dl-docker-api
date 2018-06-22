@@ -1,43 +1,43 @@
-const ipc = require("node-ipc");
+const RawIPC = require('node-ipc').IPC;
 const EventEmitter = require("events");
 const { id, connectTo, host, port } = require("./config.json");
-
-ipc.config.id = id;
-ipc.config.retry = 1500;
-ipc.config.silent = true;
 
 class YouTubeDownloader extends EventEmitter {
     constructor(url) {
         super();
-        ipc.connectToNet(connectTo, host, port, () => { this.connect(url) });
+        this.ipc = new RawIPC;
+        this.ipc.config.id = id;
+        this.ipc.config.retry = 1500;
+        this.ipc.config.silent = true;
+
+        this.ipc.connectToNet(connectTo, host, port, () => { this.connect(url) });
     }
 
     connect(url) {
-        ipc.of[connectTo].on("connect", () => {
-            ipc.of[connectTo].emit("download", url);
+        this.ipc.of[connectTo].on("connect", () => {
+            this.ipc.of[connectTo].emit("download", url);
             this.emit("open");
         });
 
-        ipc.of[connectTo].on("disconnect", () => {
+        this.ipc.of[connectTo].on("disconnect", () => {
             this.emit("close");
         });
 
-        ipc.of[connectTo].on("state-change", (data) => {
+        this.ipc.of[connectTo].on("state-change", (data) => {
             this.emit("state-change", data);
         });
 
-        ipc.of[connectTo].on("open", (data) => {
+        this.ipc.of[connectTo].on("open", (data) => {
             this.emit("started", data);
         });
 
-        ipc.of[connectTo].on("close", (data) => {
+        this.ipc.of[connectTo].on("close", (data) => {
             this.emit("finished", data);
-            ipc.disconnect(connectTo);
-            this.emit
+            this.ipc.disconnect(connectTo);
         });
 
-        ipc.of[connectTo].on("error", () => {
-            ipc.disconnect(connectTo);
+        this.ipc.of[connectTo].on("error", () => {
+            this.ipc.disconnect(connectTo);
         });
     }
 }

@@ -14,8 +14,9 @@ You can connect to it by using `node-ipc` from a different container.
 
 Side note: make sure you use an existing network to connect with.
 
-There is already written Client to connect to the API in:
-[examples/docker](https://github.com/jorenvandeweyer/youtube-dl-docker-api/tree/master/examples/docker)
+There is already written a Client to connect to the API in:
+[examples/docker](https://github.com/jorenvandeweyer/youtube-dl-docker-api/tree/master/examples/docker).
+This version supports multiple connections to the API at once.
 
 ### Connect to the API
 
