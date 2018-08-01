@@ -7,10 +7,10 @@ ipc.config.retry= 1500;
 ipc.config.silent = true;
 
 ipc.serveNet(host, port, () => {
-    ipc.server.on("download", (url, socket) => {
-        console.log("downloading: ", url);
+    ipc.server.on("download", (data, socket) => {
+        console.log("downloading: ", data);
 
-        const download = new Download(url);
+        const download = new Download(data.url, data.filename);
 
         download.on("state-change", (state, info) => {
             ipc.server.emit(socket, "state-change", {

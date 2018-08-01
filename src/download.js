@@ -2,7 +2,7 @@ const { spawn } = require("child_process");
 const EventEmitter = require("events");
 
 module.exports = class Download extends EventEmitter {
-    constructor(url) {
+    constructor(url, filename="") {
         super();
         this.filename = "";
         this.state = 0; //0 idle, 1 processing, 2 downloading, 3 finished
@@ -13,7 +13,7 @@ module.exports = class Download extends EventEmitter {
             "--audio-format",
             "mp3",
             "--exec",
-            "mv ./{} files/"
+            `mv ./{} files/${filename}`
         ];
     }
 

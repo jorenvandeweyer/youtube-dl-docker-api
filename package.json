@@ -1,6 +1,6 @@
 {
   "name": "youtube-dl-docker-api",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A youtube-dl docker container that uses the IPC protocol to request a download and notify other containers about a download's state",
   "main": "src/index.js",
   "scripts": {
