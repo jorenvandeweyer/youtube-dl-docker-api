@@ -3,14 +3,14 @@ const EventEmitter = require("events");
 const { id, connectTo, host, port } = require("./config.json");
 
 class YouTubeDownloader extends EventEmitter {
-    constructor(url) {
+    constructor(url, filename="") {
         super();
         this.ipc = new RawIPC;
         this.ipc.config.id = id;
         this.ipc.config.retry = 1500;
         this.ipc.config.silent = true;
 
-        this.ipc.connectToNet(connectTo, host, port, () => { this.connect(url) });
+        this.ipc.connectToNet(connectTo, host, port, () => { this.connect({url, filename}) });
     }
 
     connect(url) {
@@ -43,7 +43,7 @@ class YouTubeDownloader extends EventEmitter {
 }
 
 function main() {
-    const Downloader = new YouTubeDownloader("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+    const Downloader = new YouTubeDownloader("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "test.mp3");
 
     Downloader.on("open", d => console.log("open: ", d));
     Downloader.on("started", d => console.log("started: ", d));
