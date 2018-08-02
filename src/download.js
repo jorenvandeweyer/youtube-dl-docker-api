@@ -38,11 +38,11 @@ module.exports = class Download extends EventEmitter {
         for (let i = 0; i < lines.length; i++) {
             const line = lines[i];
 
-            if (line.includes("[download]")) {
+            if (line.includes("Destination: ")) {
+                this.filename = line.split("Destination: ")[1];
+            } else if (line.includes("[download]")) {
                 const info = parseDownloadLine(line);
                 this._state_change(2, info);
-            } else if (line.includes("Destination: ")) {
-                this.filename = line.split("Destination: ")[1];
             } else {
                 this._state_change(1)
             }
