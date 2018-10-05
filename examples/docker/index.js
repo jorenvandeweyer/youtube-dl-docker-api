@@ -43,7 +43,7 @@ class YouTubeDownloader extends EventEmitter {
 }
 
 function main() {
-    const Downloader = new YouTubeDownloader("https://soundcloud.com/flickphlack/drake-in-my-feelings-kiki-do-you-love-me-loop-1", "test.mp3");
+    const Downloader = new YouTubeDownloader("https://soundcloud.com/octobersveryown/drake-back-to-back-freestyle", "test.mp3");
 
     Downloader.on("open", d => console.log("open: ", d));
     Downloader.on("started", d => console.log("started: ", d));
