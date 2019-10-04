@@ -1,11 +1,12 @@
-version: "3"
+version: "3.7"
 services:
   youtube-dl:
     build: .
     volumes:
       - ./files/:/usr/src/app/files/
     networks:
-      - dupbit_prime
+      - youtube-dl-network
 networks:
-  dupbit_prime:
-    external: true
+  youtube-dl-network:
+    name: youtube-dl-network
+    driver: bridge

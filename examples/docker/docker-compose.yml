@@ -3,7 +3,7 @@ services:
   client:
     build: .
     networks:
-      - dupbit_prime
+      - youtube-dl-network
 networks:
-  dupbit_prime:
+  youtube-dl-network:
     external: true

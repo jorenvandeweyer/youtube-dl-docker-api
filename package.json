@@ -1,10 +1,10 @@
 {
   "name": "youtube-dl-docker-api",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A youtube-dl docker container that uses the IPC protocol to request a download and notify other containers about a download's state",
   "main": "src/index.js",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "youtube-dl -U && node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Joren Vandeweyer",
